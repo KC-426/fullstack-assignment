@@ -1,0 +1,112 @@
+.formData {
+  width: 300px;
+  margin: 30px auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.formData h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.input-name,
+.input-email,
+.input-password,
+.input-confirmpass {
+  margin-bottom: 20px;
+}
+
+.input-name .MuiFormControl-root,
+.input-email .MuiFormControl-root,
+.input-password .MuiFormControl-root,
+.input-confirmpass .MuiFormControl-root {
+  width: 100%;
+}
+
+.MuiInputLabel-outlined {
+  color: #000;
+}
+
+.MuiOutlinedInput-input {
+  padding: 10px;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+.submit-button-container{
+  padding-bottom: 30px;
+}
+
+.main_container {
+  padding: 20px;
+  margin: 60px 100px;
+
+}
+
+.post-container {
+  padding: 15px;
+  border: 1px solid white;
+  border-radius: 10px;
+  transition: box-shadow 0.3s ease;
+}
+
+.post-container:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.post-container img {
+  height: 300px;
+  display: block;
+  margin-top: 15px;
+  border-radius: 5px;
+}
+
+.post-name-box {
+  background-color: #6a6ae8;
+  padding: 2px 20px;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+
+.post-name {
+  color: white;
+  font-weight: bold;
+}
+.navigation-menu{
+  list-style: none;
+  display: flex;
+}
+
+.navigation-menu {
+  list-style-type: none;
+  padding: 0;
+}
+
+.navigation-menu li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.navigation-menu li a {
+  text-decoration: none;
+  color: white; 
+}
+
+.navigation-menu li a.active {
+  font-weight: bold;
+}

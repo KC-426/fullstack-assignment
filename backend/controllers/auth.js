@@ -102,7 +102,7 @@ const userLogin = async (req, res) => {
     }
 
     const token = jwt.sign({ email }, "kuldeep_secret_key", {
-      expiresIn: "1s",
+      expiresIn: "1h",
     });
     res.cookie("token", token, { httpOnly: true, secure: "production" });
 

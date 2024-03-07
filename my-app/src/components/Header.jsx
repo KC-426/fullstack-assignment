@@ -15,19 +15,16 @@ const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [authenticated, setAuthenticated] = useState(false);
 
-  // Function to handle menu click
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
-  // Function to handle logout
   const handleLogout = () => {
-    setAuthenticated(false); // Update authentication state
-    localStorage.removeItem("authToken"); // Clear authentication token from local storage
-    window.location.href = "/login"; // Redirect to login page
+    setAuthenticated(false); 
+    localStorage.removeItem("authToken"); 
+    window.location.href = "/login"; 
   };
 
-  // Menu drawer content
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Divider />

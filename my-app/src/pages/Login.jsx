@@ -64,8 +64,8 @@ const Login = () => {
 
   return (
     <Layout>
-      <form className="formData" onSubmit={addPostLogin}>
-        <h1>Login here</h1>
+      <form className="formData mt-20 mb-20" onSubmit={addPostLogin}>
+        <h1 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Login here</h1>
 
         <div className="input-email">
           <TextField

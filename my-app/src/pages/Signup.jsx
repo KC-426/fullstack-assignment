@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import Layout from "../components/Layout";
 import axios from "axios";
-import { TextField, Button, Snackbar, InputAdornment, IconButton } from "@mui/material";
+import {
+  TextField,
+  Button,
+  Snackbar,
+  InputAdornment,
+  IconButton,
+} from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import "../style/App.css";
 
@@ -44,7 +50,9 @@ const Signup = () => {
       }
     } catch (err) {
       console.error(err);
-      setError("An error occurred while signing up. Please fill the correct details.");
+      setError(
+        "An error occurred while signing up. Please fill the correct details."
+      );
       setOpenSnackbar(true);
     }
   };
@@ -54,103 +62,114 @@ const Signup = () => {
   };
 
   if (signupCompleted) {
-    window.location.href = "/login"; 
-    return null; 
+    window.location.href = "/login";
+    return null;
   }
 
   return (
     <div>
       <Layout>
-        <form className="formData" onSubmit={addPostSignup}>
-          <h1>Sign up here</h1>
-          <div className="input-name">
-            <TextField
-              id="outlined-basic"
-              label="Name"
-              variant="outlined"
-              color="primary"
-              fullWidth
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="input-field"
-            />
-          </div>
+        <form className="formData mt-20 mb-20" onSubmit={addPostSignup}>
+          <h1 className="font-bold text-gray-700 text-2xl">
+            Sign up to create account
+          </h1>
+          <h2 className="font-semibold text-gray-500 mt-0">
+            Already have an account? Sign In{" "}
+          </h2>
+          <div className="form_container">
+            <div className="input-name">
+              <TextField
+                id="outlined-basic"
+                label="Name"
+                variant="outlined"
+                color="primary"
+                fullWidth
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="input-field"
+              />
+            </div>
 
-          <div className="input-email">
-            <TextField
-              id="outlined-basic"
-              label="Email"
-              variant="outlined"
-              color="primary"
-              fullWidth
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="input-field"
-            />
-          </div>
+            <div className="input-email">
+              <TextField
+                id="outlined-basic"
+                label="Email"
+                variant="outlined"
+                color="primary"
+                fullWidth
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="input-field"
+              />
+            </div>
 
-          <div className="input-password">
-            <TextField
-              id="outlined-basic"
-              label="Password"
-              variant="outlined"
-              color="primary"
-              fullWidth
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              type={showPassword ? "text" : "password"}
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton
-                      aria-label="toggle password visibility"
-                      onClick={handleClickShowPassword}
-                    >
-                      {showPassword ? <VisibilityOff /> : <Visibility />}
-                    </IconButton>
-                  </InputAdornment>
-                ),
-              }}
-              className="input-field"
-            />
-          </div>
+            <div className="input-password">
+              <TextField
+                id="outlined-basic"
+                label="Password"
+                variant="outlined"
+                color="primary"
+                fullWidth
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                type={showPassword ? "text" : "password"}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword}
+                      >
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
+                className="input-field"
+              />
+            </div>
 
-          <div className="input-confirmpass">
-            <TextField
-              id="outlined-basic"
-              label="Confirm password"
-              variant="outlined"
-              color="primary"
-              fullWidth
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              type={showConfirmPassword ? "text" : "password"}
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton
-                      aria-label="toggle confirm password visibility"
-                      onClick={handleClickShowConfirmPassword}
-                    >
-                      {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
-                    </IconButton>
-                  </InputAdornment>
-                ),
-              }}
-              className="input-field"
-            />
-          </div>
+            <div className="input-confirmpass">
+              <TextField
+                id="outlined-basic"
+                label="Confirm password"
+                variant="outlined"
+                color="primary"
+                fullWidth
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                type={showConfirmPassword ? "text" : "password"}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle confirm password visibility"
+                        onClick={handleClickShowConfirmPassword}
+                      >
+                        {showConfirmPassword ? (
+                          <VisibilityOff />
+                        ) : (
+                          <Visibility />
+                        )}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
+                className="input-field"
+              />
+            </div>
 
-          <div className="submit-button-container">
-            <Button
-              type="submit"
-              variant="outlined"
-              fullWidth={false}
-              className="submitButton"
-              size="large"
-            >
-              <b>Sign up</b>
-            </Button>
+            <div className="submit-button-container">
+              <Button
+                type="submit"
+                variant="outlined"
+                fullWidth={false}
+                className="submitButton"
+                size="large"
+              >
+                <b>Sign up</b>
+              </Button>
+            </div>
           </div>
         </form>
         <Snackbar

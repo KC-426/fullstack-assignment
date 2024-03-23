@@ -1,29 +1,10 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-// import './style/App.css'
-// import Signup from './pages/Signup'
-// import Header from './components/Header'
-// import Post from "./pages/Post"
-
-// function App() {
-
-//   return (
-//     <>
-//     <Header />
-//     {/* <Signup /> */}
-//     {/* <Post /> */}
-//     </>
-//   )
-// }
-
-// export default App
-
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Post from "./pages/Post";
+import About from "./pages/About"
+import Contact from "./pages/Contact"
+import AddPost from "./pages/AddPost"
 
 function App() {
   return (
@@ -33,7 +14,9 @@ function App() {
           <Route path="/" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/post" element={<Post />} />
-         
+          <Route path="/about" element={<About />} />
+          <Route  path="/contact" element= {<Contact />}/>
+          <Route  path="/add_post" element= {<AddPost />}/>
         </Routes>
       </BrowserRouter>
     </div>

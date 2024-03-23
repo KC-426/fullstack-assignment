@@ -1,10 +1,17 @@
 .formData {
-  width: 500px;
+  width: 450px;
   margin: auto;
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   /* background-color: rgb(251, 248, 251, 1); */
+}
+.formDataLogin{
+  width: 320px;
+  margin: auto;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .formData h1, h2{
@@ -21,6 +28,7 @@
 .input-confirmpass {
   margin-bottom: 20px;
  background-color: white;
+
 
 }
 
@@ -43,16 +51,10 @@ button {
   display: block;
   width: 100%;
   padding: 10px;
-  background-color: #007bff;
-  color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #0056b3;
 }
 
 .submit-button-container {
@@ -84,7 +86,6 @@ button:hover {
 }
 
 .post-name-box {
-  background-color: #6a6ae8;
   padding: 2px 20px;
   margin-top: 20px;
   display: inline-block;
@@ -125,4 +126,17 @@ button:hover {
   font-size: 22px;
   margin-top: 20px;
   margin-left: 20px;
+}
+.about_image {
+  width: 45%; 
+  margin-right: 20px;
+}
+
+.about_image img {
+  width: 100%;
+  height: auto;
+}
+
+.w-800 {
+  width: 50%; 
 }

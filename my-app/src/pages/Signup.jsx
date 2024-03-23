@@ -1,13 +1,7 @@
 import React, { useState } from "react";
 import Layout from "../components/Layout";
 import axios from "axios";
-import {
-  TextField,
-  Button,
-  Snackbar,
-  InputAdornment,
-  IconButton,
-} from "@mui/material";
+import { TextField, Snackbar, InputAdornment, IconButton } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import "../style/App.css";
 
@@ -70,20 +64,33 @@ const Signup = () => {
     <div>
       <Layout>
         <form className="formData mt-20 mb-20" onSubmit={addPostSignup}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "20px",
+            }}
+          >
+            <img src="/src/images/signin.png" alt="" width={"50px"} />
+          </div>
           <h1 className="font-bold text-gray-700 text-2xl">
             Sign up to create account
           </h1>
           <h2 className="font-semibold text-gray-500 mt-0">
             Already have an account? Sign In{" "}
           </h2>
+
           <div className="form_container">
+            <h3>
+              <label className="font-semibold text-gray-600">Name: </label>
+            </h3>
             <div className="input-name">
               <TextField
                 id="outlined-basic"
-                label="Name"
                 variant="outlined"
                 color="primary"
                 fullWidth
+                size="small"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="input-field"
@@ -91,12 +98,15 @@ const Signup = () => {
             </div>
 
             <div className="input-email">
+              <h3>
+                <label className="font-semibold text-gray-600">Email: </label>
+              </h3>
               <TextField
                 id="outlined-basic"
-                label="Email"
                 variant="outlined"
                 color="primary"
                 fullWidth
+                size="small"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="input-field"
@@ -104,12 +114,17 @@ const Signup = () => {
             </div>
 
             <div className="input-password">
+              <h3>
+                <label className="font-semibold text-gray-600">
+                  Password:{" "}
+                </label>
+              </h3>
               <TextField
                 id="outlined-basic"
-                label="Password"
                 variant="outlined"
                 color="primary"
                 fullWidth
+                size="small"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 type={showPassword ? "text" : "password"}
@@ -130,12 +145,17 @@ const Signup = () => {
             </div>
 
             <div className="input-confirmpass">
+              <h3>
+                <label className="font-semibold text-gray-600">
+                  Confirm Password:{" "}
+                </label>
+              </h3>
               <TextField
                 id="outlined-basic"
-                label="Confirm password"
                 variant="outlined"
                 color="primary"
                 fullWidth
+                size="small"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 type={showConfirmPassword ? "text" : "password"}
@@ -160,15 +180,9 @@ const Signup = () => {
             </div>
 
             <div className="submit-button-container">
-              <Button
-                type="submit"
-                variant="outlined"
-                fullWidth={false}
-                className="submitButton"
-                size="large"
-              >
+              <button className="text-white bg-orange-700 hover:bg-orange-800 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none">
                 <b>Sign up</b>
-              </Button>
+              </button>
             </div>
           </div>
         </form>

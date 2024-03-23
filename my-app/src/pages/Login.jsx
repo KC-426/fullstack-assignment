@@ -1,8 +1,15 @@
 import React, { useState } from "react";
 import Layout from "../components/Layout";
 import axios from "axios";
-import { TextField, Button, Snackbar, InputAdornment, IconButton } from "@mui/material";
+import {
+  TextField,
+  Button,
+  Snackbar,
+  InputAdornment,
+  IconButton,
+} from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -31,7 +38,7 @@ const Login = () => {
       if (response.data.success) {
         setEmail("");
         setPassword("");
-        setLoginCompleted(true); 
+        setLoginCompleted(true);
       }
     } catch (err) {
       console.error(err);
@@ -58,70 +65,91 @@ const Login = () => {
   };
 
   if (loginCompleted) {
-    window.location.href = "/post"; 
-    return null; 
+    window.location.href = "/post";
+    return null;
   }
 
   return (
     <Layout>
-      <form className="formData mt-20 mb-20" onSubmit={addPostLogin}>
-        <h1 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Login here</h1>
-
-        <div className="input-email">
-          <TextField
-            id="outlined-basic"
-            label="Email"
-            variant="outlined"
-            color="primary"
-            fullWidth
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-
-        <div className="input-password">
-          <TextField
-            id="outlined-basic"
-            label="Password"
-            variant="outlined"
-            color="primary"
-            fullWidth
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            type={showPassword ? "text" : "password"}
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                  >
-                    {showPassword ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
-                </InputAdornment>
-              ),
+      <form className="formDataLogin mt-20 mb-20 " onSubmit={addPostLogin}>
+      <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "20px",
             }}
-          />
-        </div>
-
-        <div className="submit-button-container">
-          <Button
-            type="submit"
-            variant="outlined"
-            fullWidth={false}
-            className="submitButton"
-            size="large"
           >
-            <b>Login</b>  
-          </Button>
-        </div>
+            <img src="/src/images/signin.png" alt="" width={"50px"} />
+          </div>
+        <div>
+          <h1 className="font-bold text-gray-700 text-2xl text-center	mb-6">
+            Login
+          </h1>
+          <h3>
+            <label className="font-semibold text-gray-600">Email: </label>
+          </h3>
+          <div className="input-email">
+            <TextField
+              id="outlined-basic"
+              variant="outlined"
+              color="primary"
+              size="small"
+              fullWidth
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
 
-        <div className="reset-password-link">
-          {resetInitiated ? (
-            <p>Password reset link has been sent to your email.</p>
-          ) : (
-            <p onClick={handleResetPassword}>Forgot password? Click here to reset.</p>
-          )}
+          <h3>
+            <label className="font-semibold text-gray-600">Password: </label>
+          </h3>
+          <div className="input-password">
+            <TextField
+              id="outlined-basic"
+              variant="outlined"
+              color="primary"
+              fullWidth
+              size="small"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              type={showPassword ? "text" : "password"}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                    >
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </div>
+
+          <div className="reset-password-link flex justify-end font-semibold text-sm">
+            {resetInitiated ? (
+              <p>Password reset link has been sent to your email.</p>
+            ) : (
+              <p onClick={handleResetPassword}>
+                <Link> Forgot password?</Link>
+              </p>
+            )}
+          </div>
+
+          <div className="submit-button-container mt-7">
+            <button className="text-white bg-orange-700 hover:bg-orange-800 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none">
+              <b>Login</b>
+            </button>
+          </div>
+
+          <div className="mt-15 text-center ">
+            <p>Or Signup using</p>{" "}
+            <Link className="font-semibold" to="/">
+              Sign Up
+            </Link>
+          </div>
         </div>
       </form>
       <Snackbar

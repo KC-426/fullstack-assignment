@@ -5,21 +5,21 @@ var nodeMailer = require("nodemailer");
 var { google } = require("googleapis");
 const crypto = require("crypto");
 
-const CLIENT_ID =
-  "335674338168-shke2ermkcgu3rdkroomplhh58sa11e7.apps.googleusercontent.com";
-const CLIENT_SECRET = "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";
-const REDIRECT_URI = "https://developers.google.com/oauthplayground";
-REFRESH_TOKEN =
-  "1//049JTQug4rI_DCgYIARAAGAQSNwF-L9Ir_K9Os1ucVNizApYQqanZvHXNQXJKxZyO1NkjAWWh9ILsLZZceCVavNjKo7m79bWYzqE";
+// const CLIENT_ID =
+//   "335674338168-shke2ermkcgu3rdkroomplhh58sa11e7.apps.googleusercontent.com";
+// const CLIENT_SECRET = "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";
+// const REDIRECT_URI = "https://developers.google.com/oauthplayground";
+// REFRESH_TOKEN =
+//   "1//049JTQug4rI_DCgYIARAAGAQSNwF-L9Ir_K9Os1ucVNizApYQqanZvHXNQXJKxZyO1NkjAWWh9ILsLZZceCVavNjKo7m79bWYzqE";
 
-const oAuth2Client = new google.auth.OAuth2(
-  CLIENT_ID,
-  CLIENT_SECRET,
-  REDIRECT_URI
-);
-oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
+// const oAuth2Client = new google.auth.OAuth2(
+//   CLIENT_ID,
+//   CLIENT_SECRET,
+//   REDIRECT_URI
+// );
+// oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
 
-const accessToken = oAuth2Client.getAccessToken();
+// const accessToken = oAuth2Client.getAccessToken();
 
 const userSignup = async (req, res) => {
   try {
@@ -55,27 +55,27 @@ const userSignup = async (req, res) => {
     const result = await newUser.save();
     console.log(result)
 
-    const transport = nodeMailer.createTransport({
-      service: "gmail",
-      auth: {
-        type: "OAuth2",
-        user: "kuldeepchahar426@gmail.com",
-        clientId: CLIENT_ID,
-        clientSecret: CLIENT_SECRET,
-        refreshToken: REFRESH_TOKEN,
-        accessToken: accessToken,
-      },
-    });
+    // const transport = nodeMailer.createTransport({
+    //   service: "gmail",
+    //   auth: {
+    //     type: "OAuth2",
+    //     user: "kuldeepchahar426@gmail.com",
+    //     clientId: CLIENT_ID,
+    //     clientSecret: CLIENT_SECRET,
+    //     refreshToken: REFRESH_TOKEN,
+    //     accessToken: accessToken,
+    //   },
+    // });
 
-    const mailOptions = {
-      from: "kuldeepchahar426@gmail.com",
-      to: email,
-      subject: "Welcome",
-      html: "<h1>Welcome you have successfully signed up ! </h1>",
-    };
+    // const mailOptions = {
+    //   from: "kuldeepchahar426@gmail.com",
+    //   to: email,
+    //   subject: "Welcome",
+    //   html: "<h1>Welcome you have successfully signed up ! </h1>",
+    // };
 
-    const mailResult = await transport.sendMail(mailOptions);
-    console.log("Mail sent successfully:", mailResult);
+    // const mailResult = await transport.sendMail(mailOptions);
+    // console.log("Mail sent successfully:", mailResult);
 
     res.status(201).json({
       success: true,

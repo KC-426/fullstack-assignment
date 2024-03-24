@@ -5,12 +5,12 @@ import { useState, useEffect } from "react";
 import { imageListClasses } from "@mui/material";
 import { Grid, Paper, Typography, Box } from "@mui/material";
 import { FaRegHeart } from "react-icons/fa";
-import { PiTelegramLogoDuotone  } from "react-icons/pi";
-
+import { PiTelegramLogoDuotone } from "react-icons/pi";
+import { FaRegComment } from "react-icons/fa";
 
 export default function Post() {
   const [data, setData] = useState([]);
-  const [hitLike, setHitLike] = useState(false)
+  const [hitLike, setHitLike] = useState(false);
 
   const fetchPosts = async () => {
     try {
@@ -23,15 +23,14 @@ export default function Post() {
     }
   };
 
-  const likePost = async() => {
+  const likePost = async () => {
     try {
       const url = "http://localhost:3000/post/like_post";
-      const response = await axios.post(url, {withCredentials: true})
-      
+      const response = await axios.post(url, { withCredentials: true });
     } catch (err) {
       console.error(err);
     }
-  }
+  };
 
   useEffect(() => {
     fetchPosts();
@@ -62,11 +61,16 @@ export default function Post() {
                           <b>{ele._doc.postName}</b>
                         </Typography>
                       </Box> */}
-                      <div className="like_post">
-                        <FaRegHeart />
-                      </div>
-                      <div className="share_post">
-                        <PiTelegramLogoDuotone  />
+                      <div className="w-400 flex justify-between space-x-4">
+                        <div className="mt-5 text-2xl">
+                          <FaRegHeart />
+                        </div>
+                        <div className="mt-5 text-2xl">
+                          <FaRegComment />
+                        </div>
+                        <div className="mt-5 text-2xl">
+                          <PiTelegramLogoDuotone />
+                        </div>
                       </div>
                     </Box>
                     <div style={{ marginTop: "20px", fontSize: "22px" }}>

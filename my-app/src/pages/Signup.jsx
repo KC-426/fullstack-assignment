@@ -76,7 +76,7 @@ const Signup = () => {
           <h1 className="font-bold text-gray-700 text-2xl">
             Sign up to create account
           </h1>
-          <h2 className="font-semibold text-gray-500 mt-0">
+          <h2 className="font-semibold text-gray-500 ">
             Already have an account? Sign In{" "}
           </h2>
 

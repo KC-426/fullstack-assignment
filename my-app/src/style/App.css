@@ -4,7 +4,6 @@
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  /* background-color: rgb(251, 248, 251, 1); */
 }
 .formDataLogin{
   width: 320px;
@@ -58,7 +57,7 @@ button {
 }
 
 .submit-button-container {
-  padding-bottom: 30px;
+  padding-bottom: 20px;
 }
 
 .main_container {
@@ -121,12 +120,6 @@ button {
   font-weight: bold;
 }
 
-.like_post,
-.share_post {
-  font-size: 22px;
-  margin-top: 20px;
-  margin-left: 20px;
-}
 .about_image {
   width: 45%; 
   margin-right: 20px;
